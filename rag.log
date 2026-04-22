@@ -1,0 +1,57 @@
+2026-02-22 16:52:12,947 | INFO | API Query: revenue in 2023?
+2026-02-22 16:52:12,968 | INFO |  retrived chunk 1 : {'id': '963f283d-2cc0-46ed-a2f2-7d29bfa80a45', 'content': ' Future Outlook\nRevenue is projected to exceed 50 Million USD by 2025.\nInvestment in generative AI is increasing.\nProjected 2024 growth rate is 20%.\nMargins expected to improve due to automation.\nThe company demonstrates sustainable financial growth.\n\n'}
+2026-02-22 16:52:12,968 | INFO |  retrived chunk 2 : {'id': '3f5f990e-da33-485e-bbf6-9eee936b5724', 'content': 'Page 1: Company Overview\nAlphaTech Solutions is a mid-sized technology company founded in 2015.\nThe company specializes in cloud infrastructure, AI solutions, and enterprise automation.\nOver the years, AlphaTech expanded across North America, Europe, and Asia.\nIts mission is enabling digital transformation through scalable systems.\nThe company employs over 1,200 professionals globally.\n\nPage 2: Revenue Growth (2019–2023)\nIn 2019, revenue was 8 Million USD.\nIn 2020, revenue increased to 12 Million USD.\nIn 2021, revenue reached 18 Million USD.\nIn 2022, revenue rose to 25 Million USD.\nIn 2023, revenue reached 35 Million USD.\nThis reflects strong compound annual growth.\n\nPage 3: Operational Strategy\nAlphaTech focuses on automation and efficiency.\nAI analytics reduced costs by 15%.\nCloud-native architecture improved scalability.\nStrategic partnerships increased recurring revenue.\nCustomer retention improved to 92%.\n\nPage 4: Market Expansion\nIn 2022, expansion into Southeast Asia began.\nIn 2023, offices opened in Germany and Singapore.\nInternational sales contributed 40% of revenue.\nFurther expansion into South America is planned.\n\nPage 5: Future Outlook\nRevenue is projected to exceed 50 Million USD by 2025.\nInvestment in generative AI is increasing.\nProjected 2024 growth rate is 20%.\nMargins expected to improve due to automation.\nThe company demonstrates sustainable financial'}
+2026-02-22 16:52:12,968 | INFO |  retrived chunk 3 : {'id': '963f283d-2cc0-46ed-a2f2-7d29bfa80a45', 'content': ' Future Outlook\nRevenue is projected to exceed 50 Million USD by 2025.\nInvestment in generative AI is increasing.\nProjected 2024 growth rate is 20%.\nMargins expected to improve due to automation.\nThe company demonstrates sustainable financial growth.\n\n'}
+2026-02-22 16:52:12,968 | INFO |  retrived chunk 4 : {'id': '963f283d-2cc0-46ed-a2f2-7d29bfa80a45', 'content': ' Future Outlook\nRevenue is projected to exceed 50 Million USD by 2025.\nInvestment in generative AI is increasing.\nProjected 2024 growth rate is 20%.\nMargins expected to improve due to automation.\nThe company demonstrates sustainable financial growth.\n\n'}
+2026-02-22 16:52:20,670 | INFO | Latency: 7.72s
+2026-02-22 16:52:20,671 | INFO | final answer:In revenue for AlphaTech Solutions in 2023, it was 35 Million USD.
+2026-02-25 18:50:14,098 | INFO | API Query: revenue in 2023?
+2026-02-25 18:50:14,115 | INFO |  retrived chunk 1 : {'id': '233e935e-96c4-4e63-9697-4f5bf31bb26c', 'content': ' Future Outlook\nRevenue is projected to exceed 50 Million USD by 2025.\nInvestment in generative AI is increasing.\nProjected 2024 growth rate is 20%.\nMargins expected to improve due to automation.\nThe company demonstrates sustainable financial growth.\n\n'}
+2026-02-25 18:50:14,116 | INFO |  retrived chunk 2 : {'id': 'c0deebed-bfe6-443b-b805-9dfd83c53437', 'content': 'Page 1: Company Overview\nAlphaTech Solutions is a mid-sized technology company founded in 2015.\nThe company specializes in cloud infrastructure, AI solutions, and enterprise automation.\nOver the years, AlphaTech expanded across North America, Europe, and Asia.\nIts mission is enabling digital transformation through scalable systems.\nThe company employs over 1,200 professionals globally.\n\nPage 2: Revenue Growth (2019–2023)\nIn 2019, revenue was 8 Million USD.\nIn 2020, revenue increased to 12 Million USD.\nIn 2021, revenue reached 18 Million USD.\nIn 2022, revenue rose to 25 Million USD.\nIn 2023, revenue reached 35 Million USD.\nThis reflects strong compound annual growth.\n\nPage 3: Operational Strategy\nAlphaTech focuses on automation and efficiency.\nAI analytics reduced costs by 15%.\nCloud-native architecture improved scalability.\nStrategic partnerships increased recurring revenue.\nCustomer retention improved to 92%.\n\nPage 4: Market Expansion\nIn 2022, expansion into Southeast Asia began.\nIn 2023, offices opened in Germany and Singapore.\nInternational sales contributed 40% of revenue.\nFurther expansion into South America is planned.\n\nPage 5: Future Outlook\nRevenue is projected to exceed 50 Million USD by 2025.\nInvestment in generative AI is increasing.\nProjected 2024 growth rate is 20%.\nMargins expected to improve due to automation.\nThe company demonstrates sustainable financial'}
+2026-02-25 18:50:14,116 | INFO |  retrived chunk 3 : {'id': '233e935e-96c4-4e63-9697-4f5bf31bb26c', 'content': ' Future Outlook\nRevenue is projected to exceed 50 Million USD by 2025.\nInvestment in generative AI is increasing.\nProjected 2024 growth rate is 20%.\nMargins expected to improve due to automation.\nThe company demonstrates sustainable financial growth.\n\n'}
+2026-02-25 18:50:14,116 | INFO |  retrived chunk 4 : {'id': '233e935e-96c4-4e63-9697-4f5bf31bb26c', 'content': ' Future Outlook\nRevenue is projected to exceed 50 Million USD by 2025.\nInvestment in generative AI is increasing.\nProjected 2024 growth rate is 20%.\nMargins expected to improve due to automation.\nThe company demonstrates sustainable financial growth.\n\n'}
+2026-02-25 18:50:20,946 | INFO | Latency: 6.85s
+2026-02-25 18:50:20,946 | INFO | final answer:Revenue reached 35 Million USD in 2023.
+2026-03-31 21:06:34,256 | INFO | API Query: revenue in 2006?
+2026-03-31 21:06:34,258 | ERROR | error :'module' object is not callable
+2026-03-31 21:06:37,419 | INFO | API Query: revenue in 2006?
+2026-03-31 21:06:37,419 | ERROR | error :'module' object is not callable
+2026-03-31 21:09:29,958 | INFO | API Query: revenue in 2025
+2026-03-31 21:09:29,958 | ERROR | error :'module' object is not callable
+2026-03-31 21:09:31,632 | INFO | API Query: revenue in 2025
+2026-03-31 21:09:31,632 | ERROR | error :'module' object is not callable
+2026-03-31 21:11:13,155 | INFO | API Query: revenue in 2025
+2026-03-31 21:11:13,155 | ERROR | error :'module' object is not callable
+2026-03-31 21:11:18,267 | INFO | API Query: revenue in 2025
+2026-03-31 21:11:18,267 | ERROR | error :'module' object is not callable
+2026-03-31 21:22:36,311 | INFO | API Query: revenue in 2006?
+2026-03-31 21:22:36,311 | ERROR | error :'module' object is not callable
+2026-03-31 21:22:40,965 | INFO | API Query: revenue in 2006?
+2026-03-31 21:22:40,965 | ERROR | error :'module' object is not callable
+2026-03-31 21:23:22,217 | INFO | API Query: revenue in 2006?
+2026-03-31 21:23:22,217 | ERROR | error :'module' object is not callable
+2026-03-31 21:23:25,622 | INFO | API Query: revenue in 2006?
+2026-03-31 21:23:25,622 | ERROR | error :'module' object is not callable
+2026-03-31 21:39:09,624 | INFO | API Query: hii how are you?
+2026-03-31 21:39:09,624 | ERROR | error :'module' object is not callable
+2026-03-31 21:39:16,346 | INFO | API Query: hii how are you?
+2026-03-31 21:39:16,346 | ERROR | error :'module' object is not callable
+2026-03-31 22:18:08,398 | INFO | API Query: hiii?
+2026-03-31 22:18:08,400 | ERROR | error :'module' object is not callable
+2026-03-31 22:19:14,435 | INFO | API Query: Hiii?
+2026-03-31 22:19:14,436 | ERROR | error :'module' object is not callable
+2026-03-31 22:19:28,859 | INFO | API Query: Hiii?
+2026-03-31 22:19:28,859 | ERROR | error :'module' object is not callable
+2026-04-01 22:43:05,107 | INFO | API Query: in 2025?
+2026-04-01 22:43:05,108 | ERROR | error :'module' object is not callable
+2026-04-01 22:43:07,970 | INFO | API Query: in 2025?
+2026-04-01 22:43:07,971 | ERROR | error :'module' object is not callable
+2026-04-02 21:42:12,553 | INFO | API Query: explain trend in the revenue?
+2026-04-02 21:42:12,553 | ERROR | error :'module' object is not callable
+2026-04-02 22:02:42,617 | INFO | API Query: revenue trend in campany?
+2026-04-02 22:09:25,919 | INFO | API Query: revenue in 2025?
+2026-04-02 22:12:40,769 | INFO | API Query: revenue?
+2026-04-02 22:20:39,149 | INFO | API Query: revenue in 2021?
+2026-04-02 22:24:06,521 | INFO | API Query: revenue in 2024?
+2026-04-02 22:45:46,546 | INFO | API Query: revenue?
+2026-04-02 22:47:22,765 | INFO | API Query: revenue?
