@@ -1,17 +1,18 @@
-from ingestion.pdf_processor import extract_pages, chunk_pages
+from ingestion.pdf_processor import read_text, chunk_text
 
-pdf_path = "data/papers/reseaarch_paper.pdf"
+text_path = "data/papers/research.txt"
 
-pages = extract_pages(pdf_path)
+text = read_text(text_path)
 
-print("Pages extracted:", len(pages))
+print("Characters extracted:", len(text))
 
-chunks = chunk_pages(pages)
+chunks = chunk_text(text)
 
 print("Chunks created:", len(chunks))
 
 for chunk in chunks[:3]:
+
     print("\n----------------")
-    print("Page:", chunk["page"])
-    print("Type:", chunk["type"])
+
+    print("Chunk:")
     print(chunk["content"][:500])

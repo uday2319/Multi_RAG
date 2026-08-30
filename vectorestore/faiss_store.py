@@ -13,10 +13,16 @@ class FAISSStore:
         self.metadata = []
 
     def add(self, embeddings, metadata):
-        embeddings = np.asarray(embeddings, dtype="float32")
+
+        embeddings = np.asarray(
+            embeddings,
+            dtype="float32"
+        )
 
         if embeddings.ndim != 2:
-            raise ValueError("Embeddings must be a 2D array.")
+            raise ValueError(
+                "Embeddings must be a 2D array."
+            )
 
         if embeddings.shape[1] != self.dimension:
             raise ValueError(
@@ -33,6 +39,7 @@ class FAISSStore:
         self.metadata.extend(metadata)
 
     def search(self, query_embedding, top_k=5):
+
         query_embedding = np.asarray(
             query_embedding,
             dtype="float32"
@@ -58,6 +65,7 @@ class FAISSStore:
         return results
 
     def save(self, path):
+
         path = Path(path)
         path.mkdir(parents=True, exist_ok=True)
 
@@ -66,7 +74,12 @@ class FAISSStore:
             str(path / "index.faiss")
         )
 
-        with open(path / "metadata.json", "w", encoding="utf-8") as file:
+        with open(
+            path / "metadata.json",
+            "w",
+            encoding="utf-8"
+        ) as file:
+
             json.dump(
                 self.metadata,
                 file,
@@ -75,6 +88,7 @@ class FAISSStore:
             )
 
     def load(self, path):
+
         path = Path(path)
 
         self.index = faiss.read_index(
@@ -86,4 +100,5 @@ class FAISSStore:
             "r",
             encoding="utf-8"
         ) as file:
+
             self.metadata = json.load(file)

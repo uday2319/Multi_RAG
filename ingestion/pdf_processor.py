@@ -1,70 +1,41 @@
-import fitz
-import tiktoken
 from pathlib import Path
 
 from configure import CHUNK_SIZE, CHUNK_OVERLAP
 
 
-def extract_pages(pdf_path):
-    """
-    Extract text from each PDF page while preserving page numbers.
-    """
+def read_text(file_path):
 
-    pdf_path = Path(pdf_path)
+    file_path = Path(file_path)
 
-    if not pdf_path.exists():
-        raise FileNotFoundError(f"PDF not found: {pdf_path}")
+    if not file_path.exists():
+        raise FileNotFoundError(
+            f"Text file not found: {file_path}"
+        )
 
-    document = fitz.open(str(pdf_path))
-
-    pages = []
-
-    for page_number, page in enumerate(document, start=1):
-
-        text = page.get_text("text").strip()
-
-        if text:
-            pages.append({
-                "page": page_number,
-                "text": text
-            })
-
-    document.close()
-
-    return pages
+    return file_path.read_text(
+        encoding="utf-8"
+    )
 
 
-def chunk_pages(pages):
-
-    encoder = tiktoken.get_encoding("cl100k_base")
+def chunk_text(text):
 
     chunks = []
 
-    step = CHUNK_SIZE - CHUNK_OVERLAP
+    start = 0
 
-    for page_data in pages:
+    while start < len(text):
 
-        page_number = page_data["page"]
-        text = page_data["text"]
+        end = start + CHUNK_SIZE
 
-        tokens = encoder.encode(text)
+        chunk = text[start:end].strip()
 
-        for start in range(0, len(tokens), step):
-
-            chunk_tokens = tokens[start:start + CHUNK_SIZE]
-
-            if not chunk_tokens:
-                continue
-
-            content = encoder.decode(chunk_tokens).strip()
-
-            if not content:
-                continue
+        if chunk:
 
             chunks.append({
-                "content": content,
-                "type": "text",
-                "page": page_number
+                "content": chunk,
+                "type": "text"
             })
+
+        start += CHUNK_SIZE - CHUNK_OVERLAP
 
     return chunks

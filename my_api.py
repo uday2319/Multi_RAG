@@ -1,6 +1,4 @@
 import time
-import logging
-print(logging.Logger)
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 
@@ -12,16 +10,8 @@ from LLM.generator import generate_answer
 from logs.logger_config import setup_logger
 
 
-# -----------------------------
-# Logger
-# -----------------------------
-
 logger = setup_logger()
 
-
-# -----------------------------
-# FastAPI
-# -----------------------------
 
 app = FastAPI(
     title="Research Paper RAG",
@@ -30,17 +20,9 @@ app = FastAPI(
 )
 
 
-# -----------------------------
-# Request model
-# -----------------------------
-
 class QueryRequest(BaseModel):
     question: str
 
-
-# -----------------------------
-# Create RAG system
-# -----------------------------
 
 def create_rag():
 
@@ -68,10 +50,6 @@ def create_rag():
 retriever = create_rag()
 
 
-# -----------------------------
-# Root endpoint
-# -----------------------------
-
 @app.get("/")
 def root():
 
@@ -79,10 +57,6 @@ def root():
         "message": "Research Paper RAG API is running"
     }
 
-
-# -----------------------------
-# Ask question
-# -----------------------------
 
 @app.post("/ask")
 def ask_question(request: QueryRequest):
@@ -93,21 +67,14 @@ def ask_question(request: QueryRequest):
 
     if not question:
 
-        logger.warning("Empty question received")
-
         raise HTTPException(
             status_code=400,
             detail="Question cannot be empty."
         )
 
-    logger.info(f"Question received: {question}")
-
     try:
 
-        # -------------------------
-        # Retrieval
-        # -------------------------
-
+        # Retrieve relevant chunks
         results = retriever.retrieve(
             question,
             top_k=TOP_K
@@ -117,55 +84,29 @@ def ask_question(request: QueryRequest):
             f"Retrieved {len(results)} chunks"
         )
 
-        # Log retrieved evidence
-        for i, result in enumerate(results, start=1):
-
-            logger.info(
-                f"Retrieved chunk {i} | "
-                f"source={result['source']} | "
-                f"page={result['page']} | "
-                f"score={result['score']:.4f}"
-            )
-
-        # -------------------------
         # Generate answer
-        # -------------------------
-
         answer = generate_answer(
             question,
             results
         )
 
-        logger.info("Answer generated successfully")
-
-        # -------------------------
         # Sources
-        # -------------------------
-
         sources = []
 
         for result in results:
 
             sources.append({
-                "source": result["source"],
-                "page": result["page"],
-                "score": round(result["score"], 4)
+                "source": result.get(
+                    "source",
+                    "research.txt"
+                ),
+                "score": round(
+                    result.get("score", 0),
+                    4
+                )
             })
 
-        # -------------------------
-        # Latency
-        # -------------------------
-
         latency = time.time() - start_time
-
-        logger.info(
-            f"Request completed | "
-            f"latency={latency:.2f}s"
-        )
-
-        # -------------------------
-        # Response
-        # -------------------------
 
         return {
             "question": question,
@@ -176,12 +117,8 @@ def ask_question(request: QueryRequest):
 
     except Exception as e:
 
-        latency = time.time() - start_time
-
         logger.exception(
-            f"RAG request failed | "
-            f"latency={latency:.2f}s | "
-            f"error={str(e)}"
+            f"RAG request failed: {e}"
         )
 
         raise HTTPException(

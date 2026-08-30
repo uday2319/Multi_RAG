@@ -14,7 +14,6 @@ def generate_answer(query, context_chunks):
         context_parts.append(
             f"""
 Source: {chunk["source"]}
-Page: {chunk["page"]}
 
 {chunk["content"]}
 """
@@ -49,7 +48,10 @@ ANSWER:
         json={
             "model": LLM_MODEL,
             "prompt": prompt,
-            "stream": False
+            "stream": False,
+             "options": {
+            "num_predict":100,
+            "temperature": 0.1}
         },
         timeout=120
     )

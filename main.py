@@ -1,4 +1,8 @@
-from configure import EMBEDDING_MODEL, VECTORSTORE_DIR, TOP_K
+from configure import (
+    EMBEDDING_MODEL,
+    VECTORSTORE_DIR,
+    TOP_K
+)
 
 from embeddings.embedder import Embedder
 from vectorestore.faiss_store import FAISSStore
@@ -25,20 +29,26 @@ def main():
 
     retriever = create_rag()
 
-    print("Research Paper RAG")
+    print("\nResearch Paper RAG")
     print("Type 'exit' to quit.")
 
     while True:
 
-        query = input("\nAsk: ")
+        query = input("\nAsk: ").strip()
 
         if query.lower() == "exit":
             break
+
+        if not query:
+            print("Please enter a question.")
+            continue
 
         results = retriever.retrieve(
             query,
             top_k=TOP_K
         )
+
+        print(f"\nRetrieved {len(results)} chunks.")
 
         answer = generate_answer(
             query,
@@ -51,10 +61,10 @@ def main():
         print("\nSources:")
 
         for result in results:
+
             print(
-                f"- {result['source']} "
-                f"(Page {result['page']}, "
-                f"score={result['score']:.3f})"
+                f"- {result.get('source', 'research.txt')} ",
+                f"score={result.get('score', 0):.3f})"
             )
 
 

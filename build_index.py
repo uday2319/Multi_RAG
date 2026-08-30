@@ -5,29 +5,36 @@ from configure import (
 )
 
 from ingestion.pdf_processor import (
-    extract_pages,
-    chunk_pages
+    read_text,
+    chunk_text
 )
 
 from embeddings.embedder import Embedder
 from vectorestore.faiss_store import FAISSStore
 
 
-pdf_path = PAPERS_DIR / "research_paper.pdf"
+# Text file
+text_path = PAPERS_DIR / "research.txt"
 
-# 1. Extract
-pages = extract_pages(pdf_path)
 
-# 2. Chunk
-chunks = chunk_pages(pages)
+# 1. Read text
+text = read_text(text_path)
+
+print("Characters:", len(text))
+
+
+# 2. Chunk text
+chunks = chunk_text(text)
 
 # Add source metadata
 for chunk in chunks:
-    chunk["source"] = pdf_path.name
+    chunk["source"] = text_path.name
+
 
 print("Chunks:", len(chunks))
 
-# 3. Embed
+
+# 3. Create embeddings
 embedder = Embedder(EMBEDDING_MODEL)
 
 texts = [
@@ -39,7 +46,8 @@ embeddings = embedder.embed(texts)
 
 print("Embeddings:", embeddings.shape)
 
-# 4. FAISS
+
+# 4. Create FAISS index
 dimension = embeddings.shape[1]
 
 store = FAISSStore(dimension)
@@ -49,7 +57,8 @@ store.add(
     chunks
 )
 
-# 5. Save
+
+# 5. Save vector store
 store.save(VECTORSTORE_DIR)
 
 print("Vector store created successfully.")
