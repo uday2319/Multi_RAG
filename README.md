@@ -206,5 +206,5 @@ Ollama + Phi-3
 ### 1. Clone the Repository
 
 ```bash
-git clone <YOUR_GITHUB_REPOSITORY_URL>
+git clone <https://github.com/uday2319/Multi_RAG>
 cd MultiRAG
